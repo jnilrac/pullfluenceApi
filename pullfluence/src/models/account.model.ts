@@ -3,7 +3,7 @@ import {Entity, model, property} from '@loopback/repository';
 @model({settings: {
   strictObjectIDCoercion: true
 }})
-export class Blog extends Entity {
+export class Account extends Entity {
   @property({
     type: 'string',
     id: true,
@@ -12,19 +12,19 @@ export class Blog extends Entity {
   _id?: string;
 
   @property({
-    type: 'object',
+    type: 'string',
     required: true,
   })
-  content: object;
+  account_info: string;
 
 
-  constructor(data?: Partial<Blog>) {
+  constructor(data?: Partial<Account>) {
     super(data);
   }
 }
 
-export interface BlogRelations {
+export interface AccountRelations {
   // describe navigational properties here
 }
 
-export type BlogWithRelations = Blog & BlogRelations;
+export type AccountWithRelations = Account & AccountRelations;
